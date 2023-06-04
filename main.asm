@@ -15,7 +15,6 @@ kelime10 db 'resim'
 oyunu_bitir db 'bitir'
 puan db '0',0Dh,0Ah,'puan kazandınız!$'  ; kullanıcının puanını saklamak için 
 girilenKelime db 20 DUP('$') ; Kullanıcının girdiği kelimeyi saklamak için
-;yeni_saitr db 0Ah
 
 basla:
     mov dx, offset msg_basla
@@ -45,11 +44,6 @@ oyun_sonu:
     mov dx,offset puan
     mov ah,9
     int 21h ; Ekrana mesaj yazdırma
-    
-    ;mov dx, offset msg_oyun_sonu
-    ;mov ah, 9
-    ;int 21h ; Ekrana mesaj yazdırma
-    
     ret
     
 Yeni_Kelime:
@@ -269,5 +263,4 @@ msg_harfler db "Kullanabileceğiniz harfler 'A E İ K L M S R P N' başlamak iç
 msg_Yeni_Kelime db 'Tahmininizi yapınız! Oyunu sonlandırmak için "bitir" yazınız. ', 0Dh, 0Ah, '$'                ; 0ah alt satır 0dh satır başı 
 msg_kelime_bulunamadi db " kelimesi bulunamadi!",0Dh,0Ah,'$'
 msg_kelime_bulundu db " kelimesini doğru bildiniz bir puan kazandınız!",0Dh,0Ah,'$'
-;msg_oyun_sonu db "puanınız:",0Dh,0Ah,'$'
 END
